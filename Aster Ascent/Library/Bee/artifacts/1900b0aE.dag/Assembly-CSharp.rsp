@@ -331,6 +331,7 @@
 "Assets/Scripts/Enemy.cs"
 "Assets/Scripts/Player Controller.cs"
 "Assets/Scripts/Scene Manager.cs"
+"Assets/Scripts/UI.cs"
 -langversion:9.0
 
 /deterministic

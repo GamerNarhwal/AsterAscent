@@ -56,8 +56,11 @@ public class PlayerController : MonoBehaviour
             isOnGround = true;
         }
         if(other.gameObject.CompareTag("Wall")){
-            Debug.Log("You have hit a wall");
             player.velocity = new Vector2(0, 0);
+        }
+        if(other.gameObject.CompareTag("Fertilizer")){
+            Debug.Log("You've collected fertilizer");
+            Destroy(other.gameObject);
         }
     }
     

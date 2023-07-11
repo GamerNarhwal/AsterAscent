@@ -1,0 +1,8 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
+    <ui:VisualElement style="flex-grow: 1; background-color: rgba(0, 0, 0, 0); width: 1270px; height: 806px;">
+        <ui:VisualElement name="Container" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0); width: 1270px; height: 806px;">
+            <ui:Label tabindex="-1" text="Fertilizer:" display-tooltip-when-elided="true" name="Fertilizer" style="height: 24px; width: 121px;" />
+            <ui:Label tabindex="-1" text="Seeds: " display-tooltip-when-elided="true" name="Seeds" style="height: 24px; width: 115px; translate: 132px -28px;" />
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>
