@@ -90,5 +90,5 @@ MonoBehaviour:
   - '{"m_Value":true}'
   - '{"m_Value":false}'
   - '{"m_Value":false}'
-  - '{"m_Value":false}'
-  - '{"m_Value":false}'
+  - '{}'
+  - '{}'
