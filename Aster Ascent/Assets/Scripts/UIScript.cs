@@ -16,20 +16,22 @@ public class UIScript : MonoBehaviour
 
     }
 
-    void Help(){
-        labelFertilizer.text = "Help0";
+    void CollectedPowerUp(){
+        labelFertilizer.text = "Fertilizer: " + player.numOfBagsOFertilizer;
+        labelSeeds.text = "Seeds: " + player.numOfSeeds;
     }
 
     // Start is called before the first frame update
     void Start()
     {
-        Help();   
+         
     }
 
     // Update is called once per frame
     void Update()
     {
-        Help(); 
-        //FUCK
+        if(player.hasSeed || player.hasFertilizer){
+            CollectedPowerUp();
+        }
     }
 }
