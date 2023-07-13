@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
@@ -23,6 +24,9 @@ public class PlayerController : MonoBehaviour
     public Flower ObjInteract; // Reference to the flower script
     public SpriteRenderer playerSprite; // Reference to the player's sprite renderer
     public List<Sprite> currentPlayerSprite; // List of sprites for the player
+
+    // Private variables
+    //private Animator anim; // This is for when we have animations for death/movement
 
     void Start()
     {
@@ -77,6 +81,16 @@ public class PlayerController : MonoBehaviour
             Debug.Log("You have hit a wall");
             player.velocity = new Vector2(0, 0);
         }
+        // If the player collides with a gameObject tagged as "Damage", force the player to be stopped
+        if (other.gameObject.CompareTag("Damage"))
+        {
+            Debug.Log("You have been oofed");
+            player.isKinematic = true;
+            //anim.SetTrigger("DeathAnimation") to trigger death/damage animation
+            StartCoroutine(WaitAndThenDoSomething(10)); //number supposed to indicate how long to wait
+            RestartLevel();
+            player.isKinematic = false;
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -107,5 +121,17 @@ public class PlayerController : MonoBehaviour
             Destroy(other.gameObject);
             playerSprite.sprite = currentPlayerSprite[3];
         }
+    }
+
+    // Restarts level either on death or can be on button press
+    private void RestartLevel()
+    {
+        UnityEngine.SceneManagement.SceneManager.LoadScene(UnityEngine.SceneManagement.SceneManager.GetActiveScene().name);
+    }
+
+    //specifically for death wait time before restart
+    private IEnumerator WaitAndThenDoSomething(float waitTime)
+    {
+        yield return new WaitForSeconds(waitTime);
     }
 }
